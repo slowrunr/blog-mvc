@@ -1,23 +1,29 @@
-export default class Model {
-  constructor({ onPostsChanged }) {
-    this.posts = [];
-    this.onPostsChanged = onPostsChanged;
-  }
+// Removed 'default' here:
+export class Model {
+    constructor({ onPostsChanged }) {
+        this.posts = [];
+        this.onPostsChanged = onPostsChanged;
+    }
 
-  addPost(title, description) {
-    this.posts.push({
-      title,
-      description,
-    });
+    // TEST AND TBS - REMOVE IN PRODUCTION
+    checkModuleLinkage = () => {
+        console.log("HELLO, Model module is connected!");
+    };
 
-    // notify(this.posts);
+    addPost(title, description) {
+        this.posts.push({
+            title,
+            description,
+        });
 
-    this.onPostsChanged(this.posts);
-  }
+        // notify(this.posts);
 
-  getPosts() {
-    return this.posts;
-  }
+        this.onPostsChanged(this.posts);
+    }
+
+    getPosts() {
+        return this.posts;
+    }
 }
 
 // class Model2 {
