@@ -1,6 +1,8 @@
 const app = new Controller();
 import Controller from "./controller.js";
 
+app.init();
+
 // const model = new Model({
 //   onPostsChanged: handleModelPostsChanged,
 // });
