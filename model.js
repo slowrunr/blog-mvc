@@ -1,11 +1,6 @@
 export default class Model {
   constructor({ onPostsChanged }) {
-    this.posts = [
-      {
-        title: "1",
-        description: "2",
-      },
-    ];
+    this.posts = [];
     this.onPostsChanged = onPostsChanged;
   }
 
