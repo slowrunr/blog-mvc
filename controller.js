@@ -1,4 +1,5 @@
-import { Model } from "./model.js"; // change import view from 'Model' to '{ Model }'
+import { Model } from "./model.js";
+// change import view from 'Model' to '{ Model }'
 import { View } from "./view.js";
 
 export class Controller {
