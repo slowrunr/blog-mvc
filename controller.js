@@ -23,8 +23,8 @@ export class Controller {
     this.view.checkModuleLinkage();
   };
 
-  handleModelPostsChanged = (posts) => {
-    this.view.renderPosts(posts);
+  handleModelPostsChanged = (posts, isError) => {
+    this.view.render(posts, isError);
   };
 
   handleViewNewPost = (title, description) => {

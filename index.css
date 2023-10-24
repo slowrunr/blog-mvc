@@ -115,9 +115,9 @@ p,
   text-align: center;
 }
 
-.warning__message-hidden {
+/* .warning__message-hidden {
   display: none;
-}
+} */
 
 .symbols__counter {
   margin-bottom: 15px;

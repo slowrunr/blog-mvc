@@ -1,11 +1,10 @@
-// Removed 'default' here:
 export class View {
   constructor({ onNewPost }) {
     this.postsNode = document.getElementById("posts");
     this.titleInputNode = document.getElementById("titleInput");
     this.textInputNode = document.getElementById("textInput");
     this.addPostBtnNode = document.getElementById("postBtn");
-
+    this.warningsNode = document.getElementById("warningMessage");
     this.onNewPost = onNewPost;
 
     this.addPostBtnNode.addEventListener("click", this._handleBtnClick);
@@ -25,8 +24,12 @@ export class View {
     console.log(title, description);
   };
 
-  renderPosts = (posts) => {
-    this.postsNode.innerHTML = "";
+  render = (posts, isError) => {
+    this._clearView();
+
+    if (isError) {
+      this.warningsNode.innerText = `Заголовок больше 100 символов`;
+    }
 
     posts.forEach((post) => {
       this.postsNode.innerHTML += `
@@ -46,5 +49,10 @@ export class View {
       currentMonth = "0" + currentMonth;
     }
     return `${date.getDate()}.${currentMonth}.${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}`;
+  }
+
+  _clearView() {
+    this.postsNode.innerHTML = "";
+    this.warningsNode.innerText = "";
   }
 }

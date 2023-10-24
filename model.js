@@ -2,6 +2,7 @@
 export class Model {
   constructor({ onPostsChanged }) {
     this.posts = [];
+    this.isError = "false";
     this.onPostsChanged = onPostsChanged;
   }
 
@@ -11,30 +12,28 @@ export class Model {
   };
 
   addPost(title, description) {
-    this.posts.push({
-      title,
-      description,
-      timestamp: Date.now(),
-    });
+    if (this._isPostValid(title)) {
+      this.isError = "false";
+
+      this.posts.push({
+        title,
+        description,
+        timestamp: Date.now(),
+      });
+    } else {
+      this.isError = "true";
+    }
 
     // notify(this.posts);
 
-    this.onPostsChanged(this.posts);
+    this.onPostsChanged(this.posts, this.isError);
   }
 
   getPosts() {
     return this.posts;
   }
+
+  _isPostValid(title) {
+    return title.length < 10;
+  }
 }
-
-// class Model2 {
-//   constructor({ onExpenseChanged }) {
-//     this.expenses = [];
-//     this.onExpenseChanged = onExpenseChanged;
-//   }
-
-//   trackExpense(expense) {
-//     this.expense.push(expense);
-//     this.onExpenseChanged(this.expense);
-//   }
-// }
