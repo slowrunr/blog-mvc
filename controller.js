@@ -1,5 +1,5 @@
 import { Model } from "./model.js";
-// change import view from 'Model' to '{ Model }'
+
 import { View } from "./view.js";
 
 import { API } from "./api.js";

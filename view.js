@@ -2,7 +2,7 @@ export class View {
   constructor({ onNewPost }) {
     this.postsNode = document.getElementById("posts");
     this.titleInputNode = document.getElementById("titleInput");
-    this.bodyInputNode = document.getElementById("Input");
+    this.bodyInputNode = document.getElementById("bodyInput");
     this.addPostBtnNode = document.getElementById("postBtn");
     this.warningsNode = document.getElementById("warningMessage");
     this.onNewPost = onNewPost;
@@ -36,7 +36,7 @@ export class View {
       <li class="post">
         <p class="post__date">${this._buildDateString(post.timestamp)}</p>
         <p class="post__title">${post.title}</p>
-        <p class="post__description">${post.body}</p>
+        <p class="post__body">${post.body}</p>
       </li>
      `;
     });

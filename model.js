@@ -2,7 +2,7 @@
 export class Model {
   constructor({ onPostsChanged }) {
     this.posts = [];
-    this.isError = "false";
+    this.isError = false;
     this.onPostsChanged = onPostsChanged;
   }
 
@@ -11,20 +11,18 @@ export class Model {
     console.log("HELLO, Model module is connected!");
   };
 
-  addPost(title, description) {
+  addPost(title, body) {
     if (this._isPostValid(title)) {
-      this.isError = "false";
+      this.isError = false;
 
       this.posts.push({
         title,
-        description,
+        body,
         timestamp: Date.now(),
       });
     } else {
-      this.isError = "true";
+      this.isError = true;
     }
-
-    // notify(this.posts);
 
     this.onPostsChanged(this.posts, this.isError);
   }
@@ -40,6 +38,6 @@ export class Model {
   }
 
   _isPostValid(title) {
-    return title.length < 10;
+    return title.length < 100;
   }
 }
