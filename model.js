@@ -29,6 +29,12 @@ export class Model {
     this.onPostsChanged(this.posts, this.isError);
   }
 
+  setPosts(posts) {
+    this.posts = posts;
+
+    this.onPostsChanged(this.posts, this.isError);
+  }
+
   getPosts() {
     return this.posts;
   }

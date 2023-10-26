@@ -2,7 +2,7 @@ export class View {
   constructor({ onNewPost }) {
     this.postsNode = document.getElementById("posts");
     this.titleInputNode = document.getElementById("titleInput");
-    this.textInputNode = document.getElementById("textInput");
+    this.bodyInputNode = document.getElementById("Input");
     this.addPostBtnNode = document.getElementById("postBtn");
     this.warningsNode = document.getElementById("warningMessage");
     this.onNewPost = onNewPost;
@@ -17,11 +17,11 @@ export class View {
 
   _handleBtnClick = () => {
     const title = this.titleInputNode.value;
-    const description = this.textInputNode.value;
+    const body = this.bodyInputNode.value;
 
-    this.onNewPost(title, description);
+    this.onNewPost(title, body);
 
-    console.log(title, description);
+    console.log(title, body);
   };
 
   render = (posts, isError) => {
@@ -36,7 +36,7 @@ export class View {
       <li class="post">
         <p class="post__date">${this._buildDateString(post.timestamp)}</p>
         <p class="post__title">${post.title}</p>
-        <p class="post__description">${post.description}</p>
+        <p class="post__description">${post.body}</p>
       </li>
      `;
     });
